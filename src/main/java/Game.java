@@ -38,7 +38,7 @@ public class Game
      * Gets the name for the game.
      * @return String The name.
      */
-    public String getName() {return this.answer;}
+    public String getName() {return this.name;}
 
     /**
      * Gets the answer for the game and puts it lowecase
