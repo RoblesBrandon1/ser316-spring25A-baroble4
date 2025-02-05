@@ -191,8 +191,7 @@ public class Game
     /**
      * Pulls out a random animal and sets it as answer
      */
-    public void setRandomWord()
-    {
+    public void setRandomWord() {
 
         String[] animals = {"dog", "horse", "pony", "cat", "lion", "bear","lioncub", };
 
