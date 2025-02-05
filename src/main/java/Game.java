@@ -13,7 +13,7 @@ public class Game
     public int  points;
     
     /** Holds the round of the game. */
-    int a;
+    int round;
 
     /** Holds the player name for the game. */
     String name;
@@ -184,8 +184,61 @@ public class Game
      * @return double returns the appropriate number
      */
     public double makeGuess(String guess) {
-        System.out.println("Implement me in assignment 3");
-        return 0.0;
+        if (gameStatus !=0){
+            return 5.1;
+        }
+        guess = guess.toLowerCase();
+
+        guesses.add(guess);
+
+        if(guesses.size() >= 10 ){
+            gameStatus = 2;
+            return 5.0;
+        }
+
+        if(!guess.matches("[a-zA-Z]+")){
+            points -=3;
+            return 4.1;
+        }
+
+        if(guesses.indexOf(guess) != guesses.size()-1) {
+            points -= 2;
+            return 4.0;
+        }
+
+
+        if(guess.length() == 1){
+            int count = countLetters(guess.charAt(0));
+            if(count > 0){
+                points += count;
+                return 1.0 + count / 10.0;
+            }
+            return 1.0;
+        }
+        //Correct Guess
+        if(guess.equals(answer)){
+            points += answer.length();
+            gameStatus = 1;
+            return 0.0;
+        }
+
+        if(guess.length() == answer.length()){
+            points += 1;
+            return 2.0;
+        }
+        else if (guess.length() > answer.length()) {
+            points -= (guess.length() - answer.length());
+            return 2.1;
+        }
+        else{
+            if(answer.contains(guess)){
+                points += 2;
+                return 3.0;
+            }
+            points -= (answer.length() - guess.length());
+            return 2.2;
+        }
+
     }
 
     /**
