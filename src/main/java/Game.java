@@ -10,7 +10,7 @@ public class Game
 {
 
     /** Holds the points for the game. */
-    public int  points;
+    private int  points;
     
     /** Holds the round of the game. */
     int a;
