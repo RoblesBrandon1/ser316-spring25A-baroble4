@@ -4,7 +4,7 @@
 | **ID#** | **Location** | **Problem Description** File and Line Number | **Problem:** Category | **Problem:** Severity | 
 |----------|------------------------|-------------------|----------------------------------------|---------------------------------------------|
 |1|Game.Java Line 4|There is no File banner for Game code File|CG 1|LOW|
-|2|Game.java Line 72|The Class name is lowercase and the fist Letter is not Upper|CG 4b|LOW|
+|2|Game.java Line 13|The Variable for points is not Private|CG 4c|LOW|
 |3|Game.java Line 72|This is a duplicate and lazy class as there is another class that already counts the letters and that class can be used instead|CS|LOW|
 |4|Game.Java Line 130|Multiple constructors of the same class but produce different outputs but this one does not provide a useful output as it set to blanks.|CS|LOW|
 |5|Game.Java Line 186|makeGuess class does not have any implementation and does not allow the program to function as it is supposed to|FD|BR|
