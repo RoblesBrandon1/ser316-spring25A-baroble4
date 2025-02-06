@@ -75,5 +75,14 @@ public class MakeGuessTest {
         Game game = new Game("horse", "Zach");
         assertEquals("horse", game.getAnswer(), "Should return horse");
     }
-
+    /**
+     * Test that game status is returned correctly
+     */
+    @Test
+    void testGetGameStatus(){
+        Game game = new Game("horse", "Zach");
+        assertEquals(0,game.getGameStatus(), "Should return 0 if guesses list is empty and in progress");
+        game.makeGuess("horse");
+        assertEquals(1,game.getGameStatus(), "Should return 1 after correct guess and win");
+    }
 }
