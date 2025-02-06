@@ -99,5 +99,15 @@ public class MakeGuessTest {
         assertTrue(game.guesses.isEmpty(), "Guesses list should be cleared.");
         assertEquals("tiger", game.getAnswer(), "Answer should update to 'tiger'.");
     }
+    /**
+     * Test that Random word does assign to game
+     */
+    @Test
+    void testSetRandomWord() {
+        Game game = new Game("Player1");
+        game.setRandomWord();
+        assertNotNull(game.getAnswer(), "Random word should be assigned and answer is not NULL");
+        assertEquals(!game.getAnswer().isEmpty(), true, "Random word should not be empty.");
+    }
 
 }
