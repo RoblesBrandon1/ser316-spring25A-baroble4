@@ -85,4 +85,19 @@ public class MakeGuessTest {
         game.makeGuess("horse");
         assertEquals(1,game.getGameStatus(), "Should return 1 after correct guess and win");
     }
+    /**
+     * Test that initGame loads an existing game
+     */
+    @Test
+    void testInitGame() {
+        Game game = new Game("lion", "Dr. M");
+        game.makeGuess("l");
+        game.initGame("tiger", "Player2");
+
+        assertEquals(0, game.getGameStatus(), "Game status should reset to 0 for loading new game");
+        assertEquals(10, game.getPoints(), "Points should reset to 10.");
+        assertTrue(game.guesses.isEmpty(), "Guesses list should be cleared.");
+        assertEquals("tiger", game.getAnswer(), "Answer should update to 'tiger'.");
+    }
+
 }
