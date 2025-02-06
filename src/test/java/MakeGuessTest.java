@@ -67,5 +67,13 @@ public class MakeGuessTest {
         Game game = new Game("horse", "Zach");
         assertEquals("horse", game.getName(), "Should return horse");
     }
+    /**
+     * Test that correct answer is returned
+     */
+    @Test
+    void testGetAnswer(){
+        Game game = new Game("horse", "Zach");
+        assertEquals("horse", game.getAnswer(), "Should return horse");
+    }
 
 }
