@@ -59,4 +59,13 @@ public class MakeGuessTest {
         game.makeGuess("o");
         assertEquals(2, game.countCorrectLetters(), "Should return 2 for correct guesses");
     }
+    /**
+     * Tests the Name is returned properly
+     */
+    @Test
+    void testGetName(){
+        Game game = new Game("horse", "Zach");
+        assertEquals("horse", game.getName(), "Should return horse");
+    }
+
 }
