@@ -9,21 +9,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: 
-      - "main"
-      - "BlackBox"
-      - "Review"
-      - "WhiteBox"
-      - "StaticAnalysis"
-      - "Dev"
+    branches: [ "StaticAnalysis" ]
   pull_request:
-    branches: 
-      - "main"
-      - "BlackBox"
-      - "Review"
-      - "WhiteBox"
-      - "StaticAnalysis"
-      - "Dev"
+    branches: [ "StaticAnalysis" ]
 
 
 jobs:
