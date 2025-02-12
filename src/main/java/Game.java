@@ -2,7 +2,8 @@ import java.util.*;
 
 /**
  * Class for handling some game logic for hangman game.
- * Every game starts with a score of 10 and the points are reduced or increased based on the description of "makeGuess".
+ * Every game starts with a score of 10 and the points are reduced or increased based on the
+ * description of "makeGuess".
  * Points holds the current score for one game.
  * Game is lost when the user made 10 guesses and did not guess the word.
  */
@@ -102,8 +103,7 @@ public class Game {
                 } else {
                     System.out.print('_');
                 }
-            }
-            System.out.println();
+            }System.out.println();
         }
         else {
             return 0;
@@ -149,7 +149,7 @@ public class Game {
     }
 
     /**
-     * Constructs a new game with no arguments, empty name and answer
+     * Constructs a new game with no arguments, empty name and answer.
      */
     public Game() {
         this.name = "";
@@ -158,7 +158,7 @@ public class Game {
     }
 
     /**
-     * Sets the name and answers of an already existing game and clears the guesses
+     * Sets the name and answers of an already existing game and clears the guesses.
      */
     public void initGame(String answer, String name) {
         this.name = name;
@@ -181,11 +181,9 @@ public class Game {
      * 4.0 This guess was already used
      * 4.1 Guess includes symbols, numbers (not just letters or one letter)
      * 5. After 10 guesses the game ends and is set to game over
-     * 5.1 If the player keeps guessing even though the status is not InProgress
-     * <p>
+     * 5.1 If the player keeps guessing even though the status is not InProgress<p>
      *
-     * The returned answer and the guess needs to be added to the respective lists for tracking.
-     * <p>
+     * The returned answer and the guess needs to be added to the respective lists for tracking.<p>
      *
      * If letter:
      * Return 1.NumOfOccurrence, 1.0 for the letter not being in the word, 1.1 for being in there once etc.
@@ -220,7 +218,7 @@ public class Game {
     }
 
     /**
-     * Pulls out a random animal and sets it as answer
+     * Pulls out a random animal and sets it as answer.
      */
     public void setRandomWord() {
 
