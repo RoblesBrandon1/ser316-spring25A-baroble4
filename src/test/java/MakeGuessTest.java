@@ -1,11 +1,12 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class MakeGuessTest {
-    
+
     private Game game = new Game();
 
     /**
@@ -26,6 +27,7 @@ public class MakeGuessTest {
         Game game = new Game("lion", "Dr. M");
         assertEquals(0, game.countCorrectLetters(), "Should return 0 if guesses list is empty.");
     }
+
     /**
      * Tests the input if each correct letter is guessed individually
      */
@@ -38,53 +40,59 @@ public class MakeGuessTest {
         game.makeGuess("n");
         assertEquals(4, game.countCorrectLetters(), "Should return 4 if guesses list is empty.");
     }
+
     /**
      * Tests the input of letters if only a few correct letters are guessed
      */
     @Test
-    void testCountCorrectLetters_SomeCorrect(){
+    void testCountCorrectLetters_SomeCorrect() {
         Game game = new Game("lion", "Dr. M");
         game.makeGuess("l");
         game.makeGuess("i");
-        assertEquals(2,game.countCorrectLetters(), "Should return 2 if guesses list is empty.");
+        assertEquals(2, game.countCorrectLetters(), "Should return 2 if guesses list is empty.");
     }
+
     /**
      * Tests the input if there are correct and incorrect letters guessed
      */
     @Test
-    void testCountCorrectLetters_Mix(){
+    void testCountCorrectLetters_Mix() {
         Game game = new Game("lion", "Dr. M");
         game.makeGuess("l");
         game.makeGuess("j");
         game.makeGuess("o");
         assertEquals(2, game.countCorrectLetters(), "Should return 2 for correct guesses");
     }
+
     /**
      * Tests the Name is returned properly
      */
     @Test
-    void testGetName(){
+    void testGetName() {
         Game game = new Game("horse", "Zach");
         assertEquals("horse", game.getName(), "Should return horse");
     }
+
     /**
      * Test that correct answer is returned
      */
     @Test
-    void testGetAnswer(){
+    void testGetAnswer() {
         Game game = new Game("horse", "Zach");
         assertEquals("horse", game.getAnswer(), "Should return horse");
     }
+
     /**
      * Test that game status is returned correctly
      */
     @Test
-    void testGetGameStatus(){
+    void testGetGameStatus() {
         Game game = new Game("horse", "Zach");
-        assertEquals(0,game.getGameStatus(), "Should return 0 if guesses list is empty and in progress");
+        assertEquals(0, game.getGameStatus(), "Should return 0 if guesses list is empty and in progress");
         game.makeGuess("horse");
-        assertEquals(1,game.getGameStatus(), "Should return 1 after correct guess and win");
+        assertEquals(1, game.getGameStatus(), "Should return 1 after correct guess and win");
     }
+
     /**
      * Test that initGame loads an existing game
      */
@@ -99,6 +107,7 @@ public class MakeGuessTest {
         assertTrue(game.guesses.isEmpty(), "Guesses list should be cleared.");
         assertEquals("tiger", game.getAnswer(), "Answer should update to 'tiger'.");
     }
+
     /**
      * Test that Random word does assign to game
      */
