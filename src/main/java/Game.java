@@ -22,7 +22,7 @@ public class Game {
     /**
      * Holds the player name for the game.
      */
-    String name;
+    //SER316 TASK 2 SPOTBUGS FIX String name;
 
     /**
      * Holds the answer for the current game.
