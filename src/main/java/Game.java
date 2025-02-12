@@ -152,7 +152,7 @@ public class Game {
      * Constructs a new game with no arguments, empty name and answer.
      */
     public Game() {
-        this.name = "";
+        //SER316 TASK 2 SPOTBUGS FIX ; this.name = "";
         this.answer = "";
         setPoints(10);
     }
