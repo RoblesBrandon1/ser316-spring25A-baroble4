@@ -215,7 +215,7 @@ public class Game {
         if (gameStatus != 0) {
             return 5.1;
         }
-        guess = guess.toLowerCase();
+        guess = guess.toLowerCase(Locale.ENGLISH);//SER316 TASK 2 SPOTBUGS FIX
 
         guesses.add(guess);
 
@@ -270,7 +270,7 @@ public class Game {
     /**
      * Pulls out a random animal and sets it as answer.
      */
-    private void setRandomWord() { //SER316 TASK 2 SPOTBUGS FIX
+    public final void setRandomWord() { //SER316 TASK 2 SPOTBUGS FIX
         String[] animals = {"dog", "horse", "pony", "cat", "lion", "bear", "lioncub",};
 
         int randomNum = 0;

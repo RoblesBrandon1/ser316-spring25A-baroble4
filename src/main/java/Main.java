@@ -2,7 +2,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class Main {
-    static Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);//SER316 TASK 2 SPOTBUGS FIX
+    //static Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);//SER316 TASK 2 SPOTBUGS FIX
     //Asking to remove scanner because of no use, did not because change to it was also done
     public static void main(String[] args) {
         // just some calls
