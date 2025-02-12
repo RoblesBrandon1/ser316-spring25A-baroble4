@@ -12,12 +12,12 @@ public class Game {
     /**
      * Holds the points for the game.
      */
-    public int points;
+    private int points; //SER316 TASK 2 SPOTBUGS FIX
 
     /**
      * Holds the round of the game.
      */
-    int a;
+    //SER316 TASK 2 SPOTBUGS FIX int a;
 
     /**
      * Holds the player name for the game.
@@ -33,7 +33,7 @@ public class Game {
     /**
      * The path to the file holding the leaderboard.
      */
-    private String leaderboard = "leaderboard.txt";
+    //SER316 TASK 2 SPOTBUGS FIX
 
     /**
      * The status of the game. {0 - In progress, 1 - Game won, 2 - game over}
@@ -61,7 +61,7 @@ public class Game {
      * @return String The Answer.
      */
     public String getAnswer() {
-        return this.answer.toLowerCase();
+        return this.answer.toLowerCase(Locale.ENGLISH); //SER316 TASK 2 SPOTBUGS FIX
     }
 
     /**
@@ -132,7 +132,7 @@ public class Game {
      * @param name
      */
     public Game(String name) {
-        this.name = name;
+        //SER316 TASK 2 SPOTBUGS FIX ; this.name = name;
         setRandomWord();
         setPoints(5);
 
@@ -215,7 +215,7 @@ public class Game {
     /**
      * Pulls out a random animal and sets it as answer.
      */
-    public void setRandomWord() {
+    private void setRandomWord() { //SER316 TASK 2 SPOTBUGS FIX
 
         String[] animals = {"dog", "horse", "pony", "cat", "lion", "bear", "lioncub",};
 
