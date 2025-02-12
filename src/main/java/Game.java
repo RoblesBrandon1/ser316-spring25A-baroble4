@@ -161,7 +161,7 @@ public class Game {
      * Sets the name and answers of an already existing game and clears the guesses.
      */
     public void initGame(String answer, String name) {
-        this.name = name;
+        //SER316 TASK 2 SPOTBUGS FIX ; this.name = name;
         this.answer = answer;
         this.gameStatus = 0;
         this.guesses.clear();
