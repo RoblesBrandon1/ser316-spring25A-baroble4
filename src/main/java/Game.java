@@ -70,7 +70,6 @@ public class Game {
     /**
      * Gets the current status of the game.
      *
-     * @return
      */
     public int getGameStatus() {
         return this.gameStatus;
@@ -118,7 +117,6 @@ public class Game {
     /**
      * Counts how often a letter occurs
      *
-     * @param letter
      */
     public int countLetters(char letter) {
         int count = 0;
@@ -133,7 +131,6 @@ public class Game {
     /**
      * Constructs a new game with a random word.
      *
-     * @param name
      */
     public Game(String name) {
         //SER316 TASK 2 SPOTBUGS FIX ; this.name = name;
@@ -272,8 +269,7 @@ public class Game {
      */
     public final void setRandomWord() { //SER316 TASK 2 SPOTBUGS FIX
         String[] animals = {"dog", "horse", "pony", "cat", "lion", "bear", "lioncub",};
-
-        int randomNum = 0;
+        int randomNum;
         randomNum = (int) (Math.floor(Math.random() * (100 - 2 + 1) + 2) % animals.length);
         this.answer = animals[randomNum];
     }
