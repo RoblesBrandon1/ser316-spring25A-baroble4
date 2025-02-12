@@ -143,7 +143,7 @@ public class Game {
      *
      */
     public Game(String fixedWord, String name) {
-        this.name = "Anna";
+        //SER316 TASK 2 SPOTBUGS FIX ; this.name = "Anna";
         this.answer = fixedWord;
         setPoints(10);
     }
