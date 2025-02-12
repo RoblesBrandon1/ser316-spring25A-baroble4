@@ -9,7 +9,7 @@ public class MakeGuessTest {
 
     private Game game = new Game();
 
-    /**
+   /**
      * Tests the input of the Correct word chosen as first guess.
      */
     @Test
@@ -118,5 +118,6 @@ public class MakeGuessTest {
         assertNotNull(game.getAnswer(), "Random word should be assigned and answer is not NULL");
         assertEquals(!game.getAnswer().isEmpty(), true, "Random word should not be empty.");
     }
+
 
 }
