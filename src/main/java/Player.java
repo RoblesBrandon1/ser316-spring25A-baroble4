@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Player{
     private String name;
-    private int score;
+    private double score;
     private List<String> guesses;
 
     public Player(String name){
@@ -14,7 +14,7 @@ public class Player{
     public String getName(){
         return name;
     }
-    public int getScore(){
+    public double getScore(){
         return score;
     }
     public void addGuess(String guess){
@@ -22,7 +22,7 @@ public class Player{
             guesses.add(guess);
         }
     }
-    public void increaseScore(int points){
+    public void increaseScore(double points){
         this.score += points;
     }
     public List<String> getGuesses(){

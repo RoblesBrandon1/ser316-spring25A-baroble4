@@ -173,7 +173,7 @@ public class Game {
     }
 
     public void displayLeaderboard() {
-        players.sort((p1, p2) -> Integer.compare(p2.getScore(), p1.getScore()));
+        players.sort((p1, p2) -> Double.compare(p2.getScore(), p1.getScore()));
         System.out.println("Leaderboard:");
         for (Player p : players) {
             System.out.println(p.getName() + " - " + p.getScore() + " points");
@@ -281,7 +281,7 @@ public class Game {
         }
 
         if (guess.length() == answer.length()) {
-            currentPlayer.increaseScore(answers.size());
+            currentPlayer.increaseScore(1);
             points += 1;
             return 2.0;
         } else if (guess.length() > answer.length()) {
