@@ -14,8 +14,8 @@ public class MakeGuessTest {
      */
     @Test
     public void correctGuess() {
-        game.initGame("horse", "Zach");
-        double result = game.makeGuess("horse");
+        game.initGame("horse", "Dr. M");
+        double result = game.makeGuess("Dr. M","horse");
         assertEquals(0, result, 0.0001);
     }
 
@@ -34,10 +34,10 @@ public class MakeGuessTest {
     @Test
     void testCountCorrectLetters_AllCorrect() {
         Game game = new Game("lion", "Dr. M");
-        game.makeGuess("l");
-        game.makeGuess("i");
-        game.makeGuess("o");
-        game.makeGuess("n");
+        game.makeGuess("Dr. M","l");
+        game.makeGuess("Dr. M","i");
+        game.makeGuess("Dr. M","o");
+        game.makeGuess("Dr. M","n");
         assertEquals(4, game.countCorrectLetters(), "Should return 4 if guesses list is empty.");
     }
 
@@ -47,8 +47,8 @@ public class MakeGuessTest {
     @Test
     void testCountCorrectLetters_SomeCorrect() {
         Game game = new Game("lion", "Dr. M");
-        game.makeGuess("l");
-        game.makeGuess("i");
+        game.makeGuess("Dr. M","l");
+        game.makeGuess("Dr. M","i");
         assertEquals(2, game.countCorrectLetters(), "Should return 2 if guesses list is empty.");
     }
 
@@ -58,9 +58,9 @@ public class MakeGuessTest {
     @Test
     void testCountCorrectLetters_Mix() {
         Game game = new Game("lion", "Dr. M");
-        game.makeGuess("l");
-        game.makeGuess("j");
-        game.makeGuess("o");
+        game.makeGuess("Dr. M","l");
+        game.makeGuess("Dr. M","j");
+        game.makeGuess("Dr. M","o");
         assertEquals(2, game.countCorrectLetters(), "Should return 2 for correct guesses");
     }
 
@@ -87,9 +87,9 @@ public class MakeGuessTest {
      */
     @Test
     void testGetGameStatus() {
-        Game game = new Game("horse", "Zach");
+        Game game = new Game("horse", "Dr. M");
         assertEquals(0, game.getGameStatus(), "Should return 0 if guesses list is empty and in progress");
-        game.makeGuess("horse");
+        game.makeGuess("Dr. M","horse");
         assertEquals(1, game.getGameStatus(), "Should return 1 after correct guess and win");
     }
 
@@ -99,7 +99,7 @@ public class MakeGuessTest {
     @Test
     void testInitGame() {
         Game game = new Game("lion", "Dr. M");
-        game.makeGuess("l");
+        game.makeGuess("Dr. M","l");
         game.initGame("tiger", "Player2");
 
         assertEquals(0, game.getGameStatus(), "Game status should reset to 0 for loading new game");

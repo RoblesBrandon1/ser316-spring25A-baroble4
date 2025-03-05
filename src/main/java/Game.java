@@ -9,6 +9,7 @@ import java.util.*;
  */
 public class Game {
 
+    private List<Player> players;
     /**
      * Holds the points for the game.
      */
@@ -132,30 +133,29 @@ public class Game {
      * Constructs a new game with a random word.
      *
      */
-    public Game(String name) {
-        //SER316 TASK 2 SPOTBUGS FIX ; this.name = name;
-        setRandomWord();
-        setPoints(5);
+    public Game(String fixedWord, String playerName) {
+        this.players = new ArrayList<>();
+        this.guesses = new ArrayList<>();
+        this.answers = new ArrayList<>();
+        this.points = 10;
 
+        if (playerName != null && !playerName.isEmpty()) {
+            this.players.add(new Player(playerName));
+        }
+
+        if (fixedWord != null && !fixedWord.isEmpty()) {
+            this.answer = fixedWord;
+        } else {
+            setRandomWord();
+        }
     }
 
-    /**
-     * Constructs a new game with a given word and given name.
-     *
-     */
-    public Game(String fixedWord, String name) {
-        //SER316 TASK 2 SPOTBUGS FIX ; this.name = "Anna";
-        this.answer = fixedWord;
-        setPoints(10);
-    }
-
-    /**
-     * Constructs a new game with no arguments, empty name and answer.
-     */
     public Game() {
-        //SER316 TASK 2 SPOTBUGS FIX ; this.name = "";
-        this.answer = "";
-        setPoints(10);
+        this(null, null);
+    }
+
+    public Game(String playerName) {
+        this(playerName, null);
     }
 
     /**
@@ -163,11 +163,21 @@ public class Game {
      */
     public void initGame(String answer, String name) {
         //SER316 TASK 2 SPOTBUGS FIX ; this.name = name;
+        this.players = new ArrayList<>();
+        this.players.add(new Player(name));
         this.answer = answer;
         this.gameStatus = 0;
         this.guesses.clear();
         this.answers.clear();
         setPoints(10);
+    }
+
+    public void displayLeaderboard() {
+        players.sort((p1, p2) -> Integer.compare(p2.getScore(), p1.getScore()));
+        System.out.println("Leaderboard:");
+        for (Player p : players) {
+            System.out.println(p.getName() + " - " + p.getScore() + " points");
+        }
     }
 
     /**
@@ -208,25 +218,45 @@ public class Game {
      *
      * @return double returns the appropriate number
      */
-    public double makeGuess(String guess) {
+    public double makeGuess(String Player, String guess) {
+        Player currentPlayer = null;
+
+        for (Player p : players) {
+            if (p.getName().equals(Player)) {
+                currentPlayer = p;
+                break;
+            }
+        }
+
+
+        if (currentPlayer == null) {
+            System.out.println("Player not found!");
+            return -1;
+        }
+
+
         if (gameStatus != 0) {
             return 5.1;
         }
         guess = guess.toLowerCase(Locale.ENGLISH);//SER316 TASK 2 SPOTBUGS FIX
+        currentPlayer.addGuess(guess);
 
         guesses.add(guess);
 
         if (guesses.size() >= 10) {
             gameStatus = 2;
+            displayLeaderboard();
             return 5.0;
         }
 
         if (!guess.matches("[a-zA-Z]+")) {
+            currentPlayer.increaseScore(-3);
             points -= 3;
             return 4.1;
         }
 
         if (guesses.indexOf(guess) != guesses.size() - 1) {
+            currentPlayer.increaseScore(-2);
             points -= 2;
             return 4.0;
         }
@@ -235,6 +265,7 @@ public class Game {
         if (guess.length() == 1) {
             int count = countLetters(guess.charAt(0));
             if (count > 0) {
+                currentPlayer.increaseScore(count);
                 points += count;
                 return 1.0 + count / 10.0;
             }
@@ -242,22 +273,28 @@ public class Game {
         }
         //Correct Guess
         if (guess.equals(answer)) {
+            currentPlayer.increaseScore(answers.size());
             points += answer.length();
             gameStatus = 1;
+            displayLeaderboard();
             return 0.0;
         }
 
         if (guess.length() == answer.length()) {
+            currentPlayer.increaseScore(answers.size());
             points += 1;
             return 2.0;
         } else if (guess.length() > answer.length()) {
+            currentPlayer.increaseScore(guess.length() - answer.length());
             points -= (guess.length() - answer.length());
             return 2.1;
         } else {
             if (answer.contains(guess)) {
+                currentPlayer.increaseScore(2);
                 points += 2;
                 return 3.0;
             }
+            currentPlayer.increaseScore(answer.length() - guess.length());
             points -= (answer.length() - guess.length());
             return 2.2;
         }

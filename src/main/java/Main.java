@@ -9,7 +9,7 @@ public class Main {
         System.out.println("Getting started");
         Game game = new Game("Student");
         System.out.println("Current word: " + game.answer);
-        System.out.println(game.makeGuess("a"));
+        System.out.println(game.makeGuess("Dr. M","a"));
         System.out.println("Automatic guess a");
 
     }
